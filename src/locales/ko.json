@@ -1,0 +1,121 @@
+{
+    "nav": {
+        "services": "서비스",
+        "philosophy": "철학",
+        "inquiry": "문의하기",
+        "portal": "보안 포털"
+    },
+    "hero": {
+        "est": "Est. 2024 — 민간 정보 기관",
+        "title1": "침묵 속의",
+        "title2": "진실.",
+        "desc": "MD는 철저한 정밀성과 완벽한 기밀성을 요구하는 기업 및 개인을 위해 은밀하고 리스크가 높은 조사 서비스를 제공합니다.",
+        "btn_start": "조사 의뢰하기",
+        "btn_expertise": "전문 분야",
+        "scroll": "스크롤"
+    },
+    "services": {
+        "title1": "특수 목적",
+        "title2": "정보 수집",
+        "desc": "우리는 전통적인 현장 조사와 첨단 디지털 포렌식의 교착점에서 작전을 수행합니다.",
+        "items": {
+            "corporate": {
+                "title": "기업 스파이 방호",
+                "desc": "지적 재산을 보호하고 외과 수술과 같은 정밀도로 내부 위협을 식별합니다."
+            },
+            "digital": {
+                "title": "디지털 포렌식",
+                "desc": "남들이 놓친 디지털 발자국을 찾아냅니다. 고급 데이터 복구 및 사이버 인텔리전스."
+            },
+            "surveillance": {
+                "title": "비밀 감시/미행",
+                "desc": "민감한 개인 문제를 위한 최고급 감시 서비스를 절대적인 보안 속에서 실행합니다."
+            },
+            "asset": {
+                "title": "자산 추적",
+                "desc": "숨겨진 자산을 찾아내고 부의 출처를 검증하기 위한 글로벌 금융 조사."
+            },
+            "background": {
+                "title": "배경 조사",
+                "desc": "최고위 임원 채용 및 전략적 파트너십을 위한 심층 검증."
+            },
+            "risk": {
+                "title": "위험 관리",
+                "desc": "고액 자산가를 위한 선제적 위협 평가 및 보안 컨설팅."
+            }
+        }
+    },
+    "philosophy": {
+        "label": "우리의 철학",
+        "title1": "정보는",
+        "title2": "궁극적인 화폐입니다.",
+        "desc1": "소음으로 가득 찬 세상에서 MD는 신호를 찾습니다. 우리는 모든 문제의 해결책이 데이터, 패턴, 그리고 그림자 속에 숨어 있다고 믿습니다.",
+        "desc2": "우리의 방법론은 민간 부문에 맞게 조정된 엘리트 정보 기관의 정보 수집 원칙에 뿌리를 두고 있습니다. 우리는 단순한 사실을 찾는 것이 아니라, 명확성을 제공합니다.",
+        "stat1_label": "성공률",
+        "stat2_label": "기밀 유지"
+    },
+    "agents": {
+        "label": "분야별 최다 인력",
+        "title": "분야별 전문요원 최다 보유",
+        "list": {
+            "ceo": {
+                "role": "대표",
+                "name": "노천석",
+                "desc1": "대형 탐정 회사 업무",
+                "desc2": "경호 호위 전문 교육 수료"
+            },
+            "team1": {
+                "role": "팀장",
+                "name": "이영호",
+                "desc1": "특수부대 출신 현장 요원",
+                "desc2": "한국공인탐정연맹 소속"
+            },
+            "team2": {
+                "role": "팀장",
+                "name": "박준호",
+                "desc1": "해외 전문팀 지상 15년",
+                "desc2": "글로벌 전문 교육 수료"
+            },
+            "director": {
+                "role": "이사",
+                "name": "김대준",
+                "desc1": "법무부 20년 경력",
+                "desc2": "정식 PIA 자격"
+            }
+        }
+    },
+    "inquiry": {
+        "title1": "조사",
+        "title2": "의뢰",
+        "desc": "모든 통신은 암호화되며 엄격하게 기밀이 유지됩니다.",
+        "form_name": "성명 / 기업명",
+        "form_name_placeholder": "홍길동",
+        "form_email": "보안 이메일",
+        "form_email_placeholder": "confidential@protonmail.com",
+        "form_service": "서비스 범주",
+        "form_service_options": {
+            "corp": "기업 조사",
+            "digital": "디지털 포렌식",
+            "surv": "비밀 감시/미행",
+            "asset": "자산 추적",
+            "other": "기타"
+        },
+        "form_overview": "개요 요약",
+        "form_overview_placeholder": "요청의 본질에 대해 설명해 주십시오...",
+        "btn_submit": "보안 요청 제출",
+        "footer_note": "수석 요원이 안전한 채널을 통해 4시간 이내에 연락 드릴 것입니다."
+    },
+    "footer": {
+        "desc": "MD는 고위험 조사 및 전략적 위험 관리를 전문으로 하는 글로벌 민간 정보 기관입니다.",
+        "locations": "위치",
+        "legal": "법적 고지",
+        "legal_links": {
+            "privacy": "개인정보 처리방침",
+            "terms": "서비스 이용약관",
+            "compliance": "컴플라이언스"
+        },
+        "contact": "연락처",
+        "copyright": "© 2024 MD Intelligence Group",
+        "encrypted": "보안 연결 활성화됨"
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "nav": {
+        "services": "Services",
+        "philosophy": "Philosophy",
+        "inquiry": "Inquiry",
+        "portal": "Secure Portal"
+    },
+    "hero": {
+        "est": "Est. 2024 — Private Intelligence",
+        "title1": "Truth in",
+        "title2": "Silence.",
+        "desc": "MD provides discreet, high-stakes investigation services for corporations and individuals who demand absolute precision and total confidentiality.",
+        "btn_start": "Start Investigation",
+        "btn_expertise": "Our Expertise",
+        "scroll": "Scroll"
+    },
+    "services": {
+        "title1": "Specialized",
+        "title2": "Intelligence",
+        "desc": "We operate at the intersection of traditional field investigation and advanced digital forensics.",
+        "items": {
+            "corporate": {
+                "title": "Corporate Espionage",
+                "desc": "Protecting intellectual property and identifying internal threats with surgical precision."
+            },
+            "digital": {
+                "title": "Digital Forensics",
+                "desc": "Uncovering digital footprints that others miss. Advanced data recovery and cyber intelligence."
+            },
+            "surveillance": {
+                "title": "Private Surveillance",
+                "desc": "High-end surveillance for sensitive personal matters, executed with absolute discretion."
+            },
+            "asset": {
+                "title": "Asset Tracing",
+                "desc": "Global financial investigation to locate hidden assets and verify wealth sources."
+            },
+            "background": {
+                "title": "Background Intelligence",
+                "desc": "Deep-dive verification for high-level executive hires and strategic partnerships."
+            },
+            "risk": {
+                "title": "Risk Mitigation",
+                "desc": "Proactive threat assessment and security consulting for high-net-worth individuals."
+            }
+        }
+    },
+    "philosophy": {
+        "label": "Our Philosophy",
+        "title1": "Information is the",
+        "title2": "ultimate currency.",
+        "desc1": "In a world of noise, MD finds the signal. We believe that every problem has a solution hidden within the data, the patterns, and the shadows.",
+        "desc2": "Our methodology is rooted in the principles of intelligence gathering used by elite agencies, adapted for the private sector. We don't just find facts; we provide clarity.",
+        "stat1_label": "Success Rate",
+        "stat2_label": "Confidentiality"
+    },
+    "agents": {
+        "label": "Largest Workforce",
+        "title": "Elite Specialized Agents",
+        "list": {
+            "ceo": {
+                "role": "CEO",
+                "name": "Noh Cheon-seok",
+                "desc1": "Former Large Detective Agency Operations",
+                "desc2": "Certified in VIP Escort & Protection"
+            },
+            "team1": {
+                "role": "Team Leader",
+                "name": "Lee Young-ho",
+                "desc1": "Ex-Special Forces Field Operative",
+                "desc2": "Member of Korea Authorized Detective Fed."
+            },
+            "team2": {
+                "role": "Team Leader",
+                "name": "Park Jun-ho",
+                "desc1": "15 Years Overseas Covert Operations",
+                "desc2": "Certified in Global Intelligence Training"
+            },
+            "director": {
+                "role": "Director",
+                "name": "Kim Dae-jun",
+                "desc1": "20 Years Ministry of Justice Expert",
+                "desc2": "Official PIA Certified Agent"
+            }
+        }
+    },
+    "inquiry": {
+        "title1": "Initiate",
+        "title2": "Inquiry",
+        "desc": "All communications are encrypted and strictly confidential.",
+        "form_name": "Full Name / Entity",
+        "form_name_placeholder": "John Doe",
+        "form_email": "Secure Email",
+        "form_email_placeholder": "confidential@protonmail.com",
+        "form_service": "Service Category",
+        "form_service_options": {
+            "corp": "Corporate Investigation",
+            "digital": "Digital Forensics",
+            "surv": "Private Surveillance",
+            "asset": "Asset Tracing",
+            "other": "Other"
+        },
+        "form_overview": "Brief Overview",
+        "form_overview_placeholder": "Describe the nature of your request...",
+        "btn_submit": "Submit Secure Request",
+        "footer_note": "A senior operative will contact you within 4 hours via secure channels."
+    },
+    "footer": {
+        "desc": "MD is a global private intelligence firm specializing in high-stakes investigations and strategic risk management.",
+        "locations": "Locations",
+        "legal": "Legal",
+        "legal_links": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "compliance": "Compliance"
+        },
+        "contact": "Contact",
+        "copyright": "© 2024 MD Intelligence Group",
+        "encrypted": "Encrypted Connection Active"
+    }
+}

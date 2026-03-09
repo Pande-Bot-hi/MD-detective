@@ -166,7 +166,7 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 px-8 bg-[#050505]">
+      <section id="services" className="py-32 px-8 bg-white text-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             {...fadeInUp}
@@ -174,7 +174,7 @@ export default function App() {
           >
             <div className="max-w-2xl">
               <h2 className="text-5xl md:text-7xl font-serif italic mb-8">{t('services.title1')} <br />{t('services.title2')}</h2>
-              <p className="text-xl opacity-50 font-light">
+              <p className="text-xl opacity-60 font-light">
                 {t('services.desc')}
               </p>
             </div>
@@ -188,7 +188,7 @@ export default function App() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10"
+            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10"
           >
             {[
               {
@@ -225,16 +225,16 @@ export default function App() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="bg-black p-12 group hover:bg-white/5 transition-colors duration-700"
+                className="bg-white p-12 group hover:bg-black/5 transition-colors duration-700"
               >
-                <service.icon className="mb-8 opacity-40 group-hover:opacity-100 group-hover:text-white transition-all duration-500" size={32} strokeWidth={1} />
+                <service.icon className="mb-8 opacity-40 group-hover:opacity-100 group-hover:text-black transition-all duration-500" size={32} strokeWidth={1} />
                 <h3 className="text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500">
                   {service.title}
                 </h3>
-                <p className="opacity-40 font-light leading-relaxed mb-8">
+                <p className="opacity-60 font-light leading-relaxed mb-8">
                   {service.desc}
                 </p>
-                <div className="h-px w-8 bg-white/20 group-hover:w-full transition-all duration-700" />
+                <div className="h-px w-8 bg-black/20 group-hover:w-full transition-all duration-700" />
               </motion.div>
             ))}
           </motion.div>

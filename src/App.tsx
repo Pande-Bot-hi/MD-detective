@@ -25,6 +25,7 @@ export default function App() {
   const { t, i18n } = useTranslation();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,6 +93,40 @@ export default function App() {
         </div>
       )}
 
+      {/* Privacy Policy Modal */}
+      {isPrivacyModalOpen && (
+        <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-white text-black max-w-2xl w-full max-h-[80vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl relative"
+          >
+            <div className="p-6 md:p-8 flex justify-between items-center border-b border-black/10">
+              <h3 className="text-xl md:text-2xl font-serif font-bold">{t('inquiry.privacy.title')}</h3>
+              <button
+                onClick={() => setIsPrivacyModalOpen(false)}
+                className="w-10 h-10 flex items-center justify-center bg-black/5 rounded-full hover:bg-black/10 transition-colors"
+              >
+                <Lock size={18} className="opacity-60" />
+              </button>
+            </div>
+
+            <div className="p-6 md:p-8 overflow-y-auto font-light text-sm md:text-base leading-relaxed opacity-80 whitespace-pre-wrap">
+              {t('inquiry.privacy.content')}
+            </div>
+
+            <div className="p-6 md:p-8 border-t border-black/10 bg-black/5">
+              <button
+                onClick={() => setIsPrivacyModalOpen(false)}
+                className="w-full py-4 bg-black text-white rounded-full font-medium hover:scale-[1.02] transition-transform duration-300"
+              >
+                {i18n.language === 'ko' ? '확인' : 'Confirm'}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       {/* Social Floating Links */}
       <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
         <a
@@ -104,7 +139,7 @@ export default function App() {
           </span>
         </a>
         <a
-          href="https://open.kakao.com/"
+          href="http://pf.kakao.com/_vxlIxhX/chat"
           target="_blank"
           rel="noreferrer"
           className="w-14 h-14 bg-[#FEE500] text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
@@ -115,7 +150,7 @@ export default function App() {
           </span>
         </a>
         <a
-          href="https://t.me/teleles"
+          href="https://t.me/mdetection1"
           target="_blank"
           rel="noreferrer"
           className="w-14 h-14 bg-[#24A1DE] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
@@ -126,7 +161,7 @@ export default function App() {
           </span>
         </a>
         <a
-          href="https://instagram.com/"
+          href="https://www.instagram.com/md_detective911/"
           target="_blank"
           rel="noreferrer"
           className="w-14 h-14 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
@@ -191,6 +226,7 @@ export default function App() {
           loop
           muted
           playsInline
+          controls={false}
           className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen pointer-events-none"
         >
           <source src="https://videos.pexels.com/video-files/3121459/3121459-hd_1920_1080_24fps.mp4" type="video/mp4" />
@@ -514,6 +550,101 @@ export default function App() {
         </div>
       </section>
 
+      {/* Clobet On-Site Dominance Section */}
+      <section className="relative py-24 md:py-32 px-4 md:px-8 bg-[#0a0a0a] text-white overflow-hidden border-t border-white/5">
+        <div className="absolute inset-0 z-0">
+          {/* Background Layer 1: Center-aligned main image */}
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src="/Clobet/Gemini_Generated_Image_8035cv8035cv8035.png"
+              alt="MD Tactical Experience 1"
+              className="w-full h-full object-cover opacity-60 mix-blend-screen"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#0a0a0a] via-transparent to-[#0a0a0a]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/80" />
+          </div>
+
+          {/* Background Layer 2: Left-aligned overlay image */}
+          <div className="absolute top-0 left-0 w-full lg:w-1/2 h-full hidden lg:block">
+            <img
+              src="/Clobet/Gemini_Generated_Image_fj9fnofj9fnofj9f.png"
+              alt="MD Tactical Experience 2"
+              className="w-full h-full object-cover opacity-50 mix-blend-lighten"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-transparent to-[#0a0a0a]" />
+          </div>
+
+          {/* Background Layer 3: Overlay accent */}
+          <div className="absolute top-0 left-1/4 w-full h-full lg:w-3/4">
+            <img
+              src="/Clobet/Gemini_Generated_Image_yv62jhyv62jhyv62.png"
+              alt="MD Tactical Experience 3"
+              className="w-full h-full object-cover opacity-40 mix-blend-screen"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+          {/* Left Side: Powerful Message */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <h2 className="text-5xl md:text-7xl font-black font-sans leading-[1.1] text-white tracking-tighter">
+              {t('clobe.title1')} <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">{t('clobe.title2')}</span>
+            </h2>
+            <p className="text-xl md:text-2xl font-light text-white/80 leading-relaxed max-w-lg whitespace-pre-line mt-6">
+              {t('clobe.desc')}
+            </p>
+          </motion.div>
+
+          {/* Right Side: Capabilities */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="space-y-12 lg:pl-12 lg:border-l border-white/10"
+          >
+            <h3 className="text-3xl md:text-4xl font-serif italic text-gold">
+              {t('clobe.side_title')}
+            </h3>
+
+            <div className="space-y-8">
+              <div className="flex gap-6 items-start group">
+                <div className="mt-1 p-4 bg-white/5 rounded-full text-white group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-xl">
+                  <Target size={28} />
+                </div>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-bold mb-3 text-white tracking-tight">{t('clobe.features.military.title')}</h4>
+                  <p className="text-base md:text-lg font-light text-white/60 leading-relaxed">
+                    {t('clobe.features.military.desc')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start group">
+                <div className="mt-1 p-4 bg-white/5 rounded-full text-white group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-xl">
+                  <ShieldAlert size={28} />
+                </div>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-bold mb-3 text-white tracking-tight">{t('clobe.features.control.title')}</h4>
+                  <p className="text-base md:text-lg font-light text-white/60 leading-relaxed">
+                    {t('clobe.features.control.desc')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Inquiry Form Section */}
       <section id="contact" className="py-20 md:py-32 px-4 md:px-8 bg-white text-black">
         <div className="max-w-4xl mx-auto">
@@ -594,6 +725,28 @@ export default function App() {
             </div>
 
             <div className="pt-12">
+              <div className="flex items-start gap-4 mb-8 text-sm">
+                <input
+                  type="checkbox"
+                  id="privacy-consent"
+                  required
+                  className="mt-1 w-4 h-4 accent-black"
+                />
+                <label htmlFor="privacy-consent" className="font-light opacity-80 select-none cursor-pointer flex-1 flex flex-wrap items-center gap-2">
+                  {t('inquiry.privacy.agree')}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsPrivacyModalOpen(true);
+                    }}
+                    className="font-medium underline hover:text-black/60 transition-colors inline-block"
+                  >
+                    {t('inquiry.privacy.view')}
+                  </button>
+                </label>
+              </div>
+
               <button
                 type="submit"
                 disabled={submitStatus === 'submitting'}

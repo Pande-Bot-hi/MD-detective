@@ -32,7 +32,8 @@
                 "desc": [
                     "Runaway Minor Verification",
                     "Debtor Tracing",
-                    "Information Inquiry"
+                    "Information Inquiry",
+                    "Whereabouts Investigation"
                 ]
             },
             "school": {
@@ -55,7 +56,8 @@
                 "title": "Personal & Corporate Issues",
                 "desc": [
                     "Personal Protection",
-                    "Business Rights Infringement Investigation"
+                    "Business Rights Infringement Investigation",
+                    "Infidelity and Affair Investigation"
                 ]
             },
             "detection": {
@@ -146,12 +148,34 @@
         "footer_note": "A senior operative will contact you within 4 hours via secure channels.",
         "success_title": "Request Confirmed.",
         "success_desc": "Thank you.",
-        "success_btn": "Go Back"
+        "success_btn": "Go Back",
+        "privacy": {
+            "agree": "I agree to the collection and use of personal information.",
+            "view": "[View]",
+            "title": "Consent to Collection and Use of Personal Information",
+            "content": "1. Purpose and Items of Collection\n'MD Intelligence' (hereinafter 'the Company') collects the following personal information to provide seamless consultation.\n- Items Collected: Name, Phone Number, Email\n- Purpose of Collection: Customer consultation and securing communication channels\n\n2. Automatically Collected Information\nWhen using the website, the following information may be automatically collected and stored.\n- Items Collected: Access logs, cookies, access IP information, acquisition path, etc.\n\n3. Period of Retention and Use\nThe Company retains minimal personal information only for the duration of providing consultation and services.\n- Withdrawal of Consent: You may withdraw your consent to provide information at any time.\n- Principle of Destruction: The personal information will be destroyed without delay upon the user's request for withdrawal, achievement of purpose, expiration of the retention period, or discontinuation of business.\n\n4. Right to Refuse Consent\nYou have the right to refuse consent to the collection and use of personal information above. However, if you refuse consent, there may be restrictions on submitting inquiries and using services."
+        }
     },
     "certifications": {
         "label": "Accredited Qualifications",
         "title": "Certified Expertise, Trusted MD",
         "desc": "Based on thorough verification and official credentials, we legally and definitively resolve our clients' concerns. Entrust your problems to proven experts."
+    },
+    "clobe": {
+        "title1": "Overwhelming",
+        "title2": "On-site Dominance",
+        "desc": "We perfectly control the scene\nin any unexpected situation.",
+        "side_title": "Clobet Special Escort",
+        "features": {
+            "military": {
+                "title": "Military Tactical Training-based Escort",
+                "desc": "Special forces-level situational judgment and evasive maneuvers"
+            },
+            "control": {
+                "title": "Immediate Control of Unexpected Situations",
+                "desc": "Immediate response system establishment and scene dominance in crises"
+            }
+        }
     },
     "footer": {
         "desc": "MD is a global private intelligence firm specializing in high-stakes investigations and strategic risk management.",

@@ -80,9 +80,9 @@ export default function App() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: "circOut" }}
-        className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference"
+        className="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-6 flex justify-between items-center mix-blend-difference pointer-events-none"
       >
-        <div className="text-2xl font-serif tracking-tighter font-bold italic">MD</div>
+        <div className="text-2xl font-serif tracking-tighter font-bold italic pointer-events-auto">MD</div>
         <div className="hidden md:flex gap-12 text-[11px] uppercase tracking-[0.2em] font-medium items-center">
           <a href="#services" className="hover:opacity-50 transition-opacity">{t('nav.services')}</a>
           <a href="#about" className="hover:opacity-50 transition-opacity">{t('nav.philosophy')}</a>
@@ -115,7 +115,7 @@ export default function App() {
             )}
           </div>
         </div>
-        <button className="text-[11px] uppercase tracking-[0.2em] border border-white/20 px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-500">
+        <button className="text-[11px] uppercase tracking-[0.2em] border border-white/20 px-4 py-2 md:px-6 md:py-2 rounded-full hover:bg-white hover:text-black transition-all duration-500 pointer-events-auto">
           {t('nav.portal')}
         </button>
       </motion.nav>
@@ -152,10 +152,10 @@ export default function App() {
             <img
               src="/logo.png"
               alt="MD Logo"
-              className="w-64 md:w-96 mb-8 select-none"
+              className="w-48 md:w-96 mb-8 select-none"
               style={{ filter: "invert(1) brightness(1.5)" }}
             />
-            <h2 className="text-2xl md:text-3xl font-serif tracking-[1em] font-light opacity-80 pl-[1em]">
+            <h2 className="text-xl md:text-3xl font-serif tracking-[0.5em] md:tracking-[1em] font-light opacity-80 pl-[0.5em] md:pl-[1em]">
               탐정사무소
             </h2>
           </motion.div>
@@ -202,20 +202,20 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 px-8 bg-white text-black">
+      <section id="services" className="py-20 md:py-32 px-4 md:px-8 bg-white text-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             {...fadeInUp}
-            className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-4 md:gap-8"
           >
             <div className="max-w-2xl">
-              <h2 className="text-5xl md:text-7xl font-serif italic mb-8">{t('services.title1')} <br />{t('services.title2')}</h2>
-              <p className="text-xl opacity-60 font-light">
+              <h2 className="text-4xl md:text-7xl font-serif italic mb-6 md:mb-8">{t('services.title1')} <br />{t('services.title2')}</h2>
+              <p className="text-lg md:text-xl opacity-60 font-light">
                 {t('services.desc')}
               </p>
             </div>
-            <div className="text-right">
-              <span className="text-[120px] font-serif opacity-5 leading-none">01</span>
+            <div className="flex-shrink-0">
+              <span className="text-[80px] md:text-[120px] font-serif opacity-5 leading-none block mt-8 md:mt-0">01</span>
             </div>
           </motion.div>
 
@@ -261,7 +261,7 @@ export default function App() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="bg-white p-12 group hover:bg-black/5 transition-colors duration-700"
+                className="bg-white p-8 md:p-12 group hover:bg-black/5 transition-colors duration-700"
               >
                 <service.icon className="mb-8 opacity-40 group-hover:opacity-100 group-hover:text-black transition-all duration-500" size={32} strokeWidth={1} />
                 <h3 className="text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500">
@@ -282,13 +282,13 @@ export default function App() {
       </section>
 
       {/* Philosophy Section */}
-      <section id="about" className="py-32 px-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+      <section id="about" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 1.1 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
-            className="relative aspect-[4/5] overflow-hidden rounded-2xl"
+            className="relative aspect-[4/5] overflow-hidden rounded-2xl w-full max-w-md mx-auto md:max-w-none"
           >
             <img
               src="/디자인.png"
@@ -299,9 +299,9 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           </motion.div>
 
-          <motion.div {...fadeInUp}>
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-8 block opacity-40 font-mono">{t('philosophy.label')}</span>
-            <h2 className="text-5xl md:text-6xl font-serif italic mb-12 leading-tight">
+          <motion.div {...fadeInUp} className="text-center md:text-left mt-8 md:mt-0">
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono">{t('philosophy.label')}</span>
+            <h2 className="text-4xl md:text-6xl font-serif italic mb-8 md:mb-12 leading-tight">
               {t('philosophy.title1')} <br />{t('philosophy.title2')}
             </h2>
             <div className="space-y-8 text-lg font-light opacity-60 leading-relaxed">
@@ -341,17 +341,17 @@ export default function App() {
       </section>
 
       {/* Agents Section */}
-      <section id="agents" className="py-32 px-8 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
+      <section id="agents" className="py-20 md:py-32 px-4 md:px-8 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             {...fadeInUp}
-            className="text-center mb-24"
+            className="text-center mb-16 md:mb-24"
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-8 block opacity-40 font-mono text-gold">{t('agents.label')}</span>
-            <h2 className="text-4xl md:text-6xl font-serif italic mb-8">{t('agents.title')}</h2>
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('agents.label')}</span>
+            <h2 className="text-3xl md:text-6xl font-serif italic mb-8">{t('agents.title')}</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
             {[
               {
                 id: 'ceo',
@@ -415,21 +415,21 @@ export default function App() {
         </div>
       </section>
       {/* Certifications Section */}
-      <section id="certifications" className="py-32 px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+      <section id="certifications" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             {...fadeInUp}
-            className="text-center mb-24 max-w-3xl mx-auto"
+            className="text-center mb-16 md:mb-24 max-w-3xl mx-auto"
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-8 block opacity-40 font-mono text-gold">{t('certifications.label')}</span>
-            <h2 className="text-4xl md:text-5xl font-serif italic mb-8 leading-tight">{t('certifications.title')}</h2>
-            <p className="text-lg font-light opacity-60 leading-relaxed">
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('certifications.label')}</span>
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('certifications.title')}</h2>
+            <p className="text-base md:text-lg font-light opacity-60 leading-relaxed px-4 md:px-0">
               {t('certifications.desc')}
             </p>
           </motion.div>
 
           {/* Grid of 4 Certificates */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 px-2 md:px-0">
             {[1, 2, 3, 4].map((item, i) => (
               <motion.div
                 key={i}
@@ -437,7 +437,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="relative w-40 h-56 md:w-56 md:h-80 border border-white/10 group bg-white/5 rounded-sm overflow-hidden flex-shrink-0 shadow-2xl"
+                className="relative w-full aspect-[1/1.4] lg:w-48 lg:h-64 border border-white/10 group bg-white/5 rounded-sm overflow-hidden flex-shrink-0 shadow-2xl mx-auto"
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
                 <img
@@ -452,14 +452,14 @@ export default function App() {
       </section>
 
       {/* Inquiry Form Section */}
-      <section id="contact" className="py-32 px-8 bg-white text-black">
+      <section id="contact" className="py-20 md:py-32 px-4 md:px-8 bg-white text-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
             {...fadeInUp}
-            className="text-center mb-24"
+            className="text-center mb-16 md:mb-24"
           >
-            <h2 className="text-6xl md:text-8xl font-serif italic mb-8">{t('inquiry.title1')} <br />{t('inquiry.title2')}</h2>
-            <p className="text-xl font-light opacity-60">
+            <h2 className="text-5xl md:text-8xl font-serif italic mb-6 md:mb-8">{t('inquiry.title1')} <br />{t('inquiry.title2')}</h2>
+            <p className="text-lg md:text-xl font-light opacity-60 px-4 md:px-0">
               {t('inquiry.desc')}
             </p>
           </motion.div>
@@ -534,16 +534,16 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-8 border-t border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
-          <div className="max-w-xs">
-            <div className="text-3xl font-serif italic mb-8">MD</div>
+      <footer className="py-16 md:py-24 px-4 md:px-8 border-t border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 md:gap-16">
+          <div className="max-w-xs text-center md:text-left mx-auto lg:mx-0">
+            <div className="text-3xl font-serif italic mb-6 md:mb-8">MD</div>
             <p className="text-sm opacity-40 leading-relaxed font-light">
               {t('footer.desc')}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 w-full lg:w-auto text-center md:text-left">
             <div>
               <h4 className="text-[10px] uppercase tracking-widest font-bold mb-8 opacity-40">{t('footer.locations')}</h4>
               <ul className="space-y-4 text-sm font-light opacity-60">

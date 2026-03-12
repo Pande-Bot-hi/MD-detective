@@ -6,7 +6,7 @@
         "portal": "Secure Portal"
     },
     "hero": {
-        "est": "Est. 2024 — Private Intelligence",
+        "est": "Est. 2024 — Premium Detective Agency",
         "title1": "Truth in",
         "title2": "Silence.",
         "desc": "MD provides discreet, high-stakes investigation services for corporations and individuals who demand absolute precision and total confidentiality.",
@@ -19,29 +19,51 @@
         "title2": "Intelligence",
         "desc": "We operate at the intersection of traditional field investigation and advanced digital forensics.",
         "items": {
-            "corporate": {
-                "title": "Corporate Espionage",
-                "desc": "Protecting intellectual property and identifying internal threats with surgical precision."
-            },
-            "digital": {
-                "title": "Digital Forensics",
-                "desc": "Uncovering digital footprints that others miss. Advanced data recovery and cyber intelligence."
-            },
-            "surveillance": {
-                "title": "Private Surveillance",
-                "desc": "High-end surveillance for sensitive personal matters, executed with absolute discretion."
-            },
-            "asset": {
-                "title": "Asset Tracing",
-                "desc": "Global financial investigation to locate hidden assets and verify wealth sources."
+            "debt": {
+                "title": "Debt Collection",
+                "desc": [
+                    "Debtor Verification",
+                    "Debt Litigation",
+                    "Civil Litigation Proceedings"
+                ]
             },
             "background": {
-                "title": "Background Intelligence",
-                "desc": "Deep-dive verification for high-level executive hires and strategic partnerships."
+                "title": "Background Check",
+                "desc": [
+                    "Runaway Minor Verification",
+                    "Debtor Tracing",
+                    "Information Inquiry"
+                ]
             },
-            "risk": {
-                "title": "Risk Mitigation",
-                "desc": "Proactive threat assessment and security consulting for high-net-worth individuals."
+            "school": {
+                "title": "School Violence Investigation",
+                "desc": [
+                    "Child's Whereabouts Verification",
+                    "Inter-student Issue Investigation"
+                ]
+            },
+            "evidence": {
+                "title": "Civil/Criminal Evidence Collection",
+                "desc": [
+                    "Criminal Case Evidence",
+                    "Litigation-related Evidence",
+                    "Family Court Evidence",
+                    "Civil Case Evidence"
+                ]
+            },
+            "corporate": {
+                "title": "Personal & Corporate Issues",
+                "desc": [
+                    "Personal Protection",
+                    "Business Rights Infringement Investigation"
+                ]
+            },
+            "detection": {
+                "title": "Detection & Sweeping",
+                "desc": [
+                    "Wiretap, Bugging, Location Tracking",
+                    "Precision Tracking using Digital Equipment"
+                ]
             }
         }
     },
@@ -61,26 +83,41 @@
             "ceo": {
                 "role": "CEO",
                 "name": "Noh Cheon-seok",
-                "desc1": "Former Large Detective Agency Operations",
-                "desc2": "Certified in VIP Escort & Protection"
+                "desc": [
+                    "Member of Korea Authorized Detective Fed.",
+                    "Holds PIA Detective Certification",
+                    "Holds 1st Class Detective Certification",
+                    "Former Field Investigator at Large Suwon Agency",
+                    "Certified in CLOBET & INTEL VIP Escort / Intel Operations"
+                ]
             },
             "team1": {
                 "role": "Team Leader",
-                "name": "Lee Young-ho",
-                "desc1": "Ex-Special Forces Field Operative",
-                "desc2": "Member of Korea Authorized Detective Fed."
+                "name": "Jang O.O",
+                "desc": [
+                    "Member of Korea Authorized Detective Fed.",
+                    "Holds PIA Detective Certification",
+                    "Former Field Investigator at Large Seoul Agency"
+                ]
             },
             "team2": {
-                "role": "Team Leader",
-                "name": "Park Jun-ho",
-                "desc1": "15 Years Overseas Covert Operations",
-                "desc2": "Certified in Global Intelligence Training"
+                "role": "Assistant Manager",
+                "name": "Kim O.O",
+                "desc": [
+                    "Female Detective",
+                    "Member of Korea Authorized Detective Fed.",
+                    "Holds PIA Detective Certification",
+                    "Holds 1st Class Detective Certification"
+                ]
             },
             "director": {
                 "role": "Director",
-                "name": "Kim Dae-jun",
-                "desc1": "20 Years Ministry of Justice Expert",
-                "desc2": "Official PIA Certified Agent"
+                "name": "Yoon O.O",
+                "desc": [
+                    "Holds 1st Class PIA Detective Certification",
+                    "Expert in Corporate Fraud & Embezzlement Analysis",
+                    "Specialist in Tracing Hidden Assets & Overseas Targets"
+                ]
             }
         }
     },
@@ -104,6 +141,11 @@
         "form_overview_placeholder": "Describe the nature of your request...",
         "btn_submit": "Submit Secure Request",
         "footer_note": "A senior operative will contact you within 4 hours via secure channels."
+    },
+    "certifications": {
+        "label": "Accredited Qualifications",
+        "title": "Certified Expertise, Trusted MD",
+        "desc": "Based on thorough verification and official credentials, we legally and definitively resolve our clients' concerns. Entrust your problems to proven experts."
     },
     "footer": {
         "desc": "MD is a global private intelligence firm specializing in high-stakes investigations and strategic risk management.",

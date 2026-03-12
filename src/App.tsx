@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Shield, Cpu, Eye, Search, UserCheck, Lock, ArrowRight, ChevronDown, Globe } from 'lucide-react';
+import { Shield, Cpu, Eye, Search, UserCheck, Lock, ArrowRight, ChevronDown, Globe, FileText, ShieldAlert, Scale, Target, MessageCircle, Send, Instagram } from 'lucide-react';
 import Lenis from 'lenis';
 import { useTranslation } from 'react-i18next';
 import './i18n';
@@ -36,9 +36,45 @@ export default function App() {
       autoRaf: true,
     });
   }, []);
-
   return (
     <div className="min-h-screen font-sans selection:bg-white/20">
+      {/* Social Floating Links */}
+      <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+        <a
+          href="https://open.kakao.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-14 h-14 bg-[#FEE500] text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
+        >
+          <MessageCircle size={24} fill="currentColor" />
+          <span className="absolute right-full mr-4 bg-black/90 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-white/10 pointer-events-none">
+            KakaoTalk
+          </span>
+        </a>
+        <a
+          href="https://t.me/teleles"
+          target="_blank"
+          rel="noreferrer"
+          className="w-14 h-14 bg-[#24A1DE] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
+        >
+          <Send size={24} fill="currentColor" className="ml-1" />
+          <span className="absolute right-full mr-4 bg-black/90 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-white/10 pointer-events-none">
+            Telegram
+          </span>
+        </a>
+        <a
+          href="https://instagram.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-14 h-14 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
+        >
+          <Instagram size={28} />
+          <span className="absolute right-full mr-4 bg-black/90 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-white/10 pointer-events-none">
+            Instagram
+          </span>
+        </a>
+      </div>
+
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -192,34 +228,34 @@ export default function App() {
           >
             {[
               {
-                title: t('services.items.corporate.title'),
-                desc: t('services.items.corporate.desc'),
-                icon: Shield
-              },
-              {
-                title: t('services.items.digital.title'),
-                desc: t('services.items.digital.desc'),
-                icon: Cpu
-              },
-              {
-                title: t('services.items.surveillance.title'),
-                desc: t('services.items.surveillance.desc'),
-                icon: Eye
-              },
-              {
-                title: t('services.items.asset.title'),
-                desc: t('services.items.asset.desc'),
-                icon: Search
+                title: t('services.items.debt.title'),
+                desc: t('services.items.debt.desc', { returnObjects: true }),
+                icon: FileText
               },
               {
                 title: t('services.items.background.title'),
-                desc: t('services.items.background.desc'),
-                icon: UserCheck
+                desc: t('services.items.background.desc', { returnObjects: true }),
+                icon: Search
               },
               {
-                title: t('services.items.risk.title'),
-                desc: t('services.items.risk.desc'),
-                icon: Lock
+                title: t('services.items.school.title'),
+                desc: t('services.items.school.desc', { returnObjects: true }),
+                icon: Eye
+              },
+              {
+                title: t('services.items.evidence.title'),
+                desc: t('services.items.evidence.desc', { returnObjects: true }),
+                icon: Scale
+              },
+              {
+                title: t('services.items.corporate.title'),
+                desc: t('services.items.corporate.desc', { returnObjects: true }),
+                icon: ShieldAlert
+              },
+              {
+                title: t('services.items.detection.title'),
+                desc: t('services.items.detection.desc', { returnObjects: true }),
+                icon: Target
               }
             ].map((service, i) => (
               <motion.div
@@ -231,9 +267,13 @@ export default function App() {
                 <h3 className="text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500">
                   {service.title}
                 </h3>
-                <p className="opacity-60 font-light leading-relaxed mb-8">
-                  {service.desc}
-                </p>
+                <div className="opacity-60 font-light leading-relaxed mb-8 space-y-2">
+                  {Array.isArray(service.desc) ? service.desc.map((line: string, idx: number) => (
+                    <p key={idx} className="flex items-start gap-2">
+                      <span className="text-gold mt-1">•</span> {line}
+                    </p>
+                  )) : <p>{service.desc}</p>}
+                </div>
                 <div className="h-px w-8 bg-black/20 group-hover:w-full transition-all duration-700" />
               </motion.div>
             ))}
@@ -251,7 +291,7 @@ export default function App() {
             className="relative aspect-[4/5] overflow-hidden rounded-2xl"
           >
             <img
-              src="https://picsum.photos/seed/investigation/800/1000"
+              src="/디자인.png"
               alt="Investigation"
               className="object-cover w-full h-full opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
               referrerPolicy="no-referrer"
@@ -315,35 +355,31 @@ export default function App() {
             {[
               {
                 id: 'ceo',
-                image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+                image: '/agent/노천석.png',
                 role: t('agents.list.ceo.role'),
                 name: t('agents.list.ceo.name'),
-                desc1: t('agents.list.ceo.desc1'),
-                desc2: t('agents.list.ceo.desc2')
-              },
-              {
-                id: 'team1',
-                image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80',
-                role: t('agents.list.team1.role'),
-                name: t('agents.list.team1.name'),
-                desc1: t('agents.list.team1.desc1'),
-                desc2: t('agents.list.team1.desc2')
-              },
-              {
-                id: 'team2',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80',
-                role: t('agents.list.team2.role'),
-                name: t('agents.list.team2.name'),
-                desc1: t('agents.list.team2.desc1'),
-                desc2: t('agents.list.team2.desc2')
+                desc: t('agents.list.ceo.desc', { returnObjects: true })
               },
               {
                 id: 'director',
-                image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80',
+                image: '/agent/윤.png',
                 role: t('agents.list.director.role'),
                 name: t('agents.list.director.name'),
-                desc1: t('agents.list.director.desc1'),
-                desc2: t('agents.list.director.desc2')
+                desc: t('agents.list.director.desc', { returnObjects: true })
+              },
+              {
+                id: 'team1',
+                image: '/agent/장.png',
+                role: t('agents.list.team1.role'),
+                name: t('agents.list.team1.name'),
+                desc: t('agents.list.team1.desc', { returnObjects: true })
+              },
+              {
+                id: 'team2',
+                image: '/agent/여탐정.png',
+                role: t('agents.list.team2.role'),
+                name: t('agents.list.team2.name'),
+                desc: t('agents.list.team2.desc', { returnObjects: true })
               }
             ].map((agent, i) => (
               <motion.div
@@ -368,11 +404,47 @@ export default function App() {
 
                 <div className="w-8 h-px bg-gold/30 my-4" />
 
-                <p className="text-sm font-light opacity-60 leading-relaxed max-w-[200px]">
-                  {agent.desc1}
-                  <br />
-                  {agent.desc2}
-                </p>
+                <div className="text-[13px] font-light opacity-60 leading-[1.6] max-w-[240px] space-y-1">
+                  {Array.isArray(agent.desc) && agent.desc.map((line: string, idx: number) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Certifications Section */}
+      <section id="certifications" className="py-32 px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...fadeInUp}
+            className="text-center mb-24 max-w-3xl mx-auto"
+          >
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-8 block opacity-40 font-mono text-gold">{t('certifications.label')}</span>
+            <h2 className="text-4xl md:text-5xl font-serif italic mb-8 leading-tight">{t('certifications.title')}</h2>
+            <p className="text-lg font-light opacity-60 leading-relaxed">
+              {t('certifications.desc')}
+            </p>
+          </motion.div>
+
+          {/* Grid of 4 Certificates */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            {[1, 2, 3, 4].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="relative w-40 h-56 md:w-56 md:h-80 border border-white/10 group bg-white/5 rounded-sm overflow-hidden flex-shrink-0 shadow-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+                <img
+                  src={`/cert${item}.jpg`}
+                  alt={`Certification ${item}`}
+                  className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
               </motion.div>
             ))}
           </div>
@@ -393,6 +465,8 @@ export default function App() {
           </motion.div>
 
           <motion.form
+            action="https://formspree.io/f/xnjgdyew"
+            method="POST"
             {...fadeInUp}
             className="space-y-12"
           >
@@ -401,6 +475,8 @@ export default function App() {
                 <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_name')}</label>
                 <input
                   type="text"
+                  name="name"
+                  required
                   className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent"
                   placeholder={t('inquiry.form_name_placeholder')}
                 />
@@ -409,6 +485,8 @@ export default function App() {
                 <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_email')}</label>
                 <input
                   type="email"
+                  name="email"
+                  required
                   className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent"
                   placeholder={t('inquiry.form_email_placeholder')}
                 />
@@ -418,7 +496,7 @@ export default function App() {
             <div className="space-y-2">
               <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_service')}</label>
               <div className="relative">
-                <select className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent appearance-none">
+                <select name="service_category" required className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent appearance-none">
                   <option>{t('inquiry.form_service_options.corp')}</option>
                   <option>{t('inquiry.form_service_options.digital')}</option>
                   <option>{t('inquiry.form_service_options.surv')}</option>
@@ -433,6 +511,8 @@ export default function App() {
               <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_overview')}</label>
               <textarea
                 rows={4}
+                name="message"
+                required
                 className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent resize-none"
                 placeholder={t('inquiry.form_overview_placeholder')}
               />
@@ -483,8 +563,8 @@ export default function App() {
             <div>
               <h4 className="text-[10px] uppercase tracking-widest font-bold mb-8 opacity-40">{t('footer.contact')}</h4>
               <ul className="space-y-4 text-sm font-light opacity-60">
-                <li>intelligence@md.com</li>
-                <li>+82 2 000 0000</li>
+                <li>mdetection@naver.com</li>
+                <li>010-3985-8279</li>
               </ul>
             </div>
           </div>

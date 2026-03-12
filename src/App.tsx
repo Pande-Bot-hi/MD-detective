@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Shield, Cpu, Eye, Search, UserCheck, Lock, ArrowRight, ChevronDown, Globe, FileText, ShieldAlert, Scale, Target, MessageCircle, Send, Instagram } from 'lucide-react';
+import { Shield, Cpu, Eye, Search, UserCheck, Lock, ArrowRight, ChevronDown, Globe, FileText, ShieldAlert, Scale, Target, MessageCircle, Send, Instagram, Phone } from 'lucide-react';
 import Lenis from 'lenis';
 import { useTranslation } from 'react-i18next';
 import './i18n';
@@ -24,6 +24,35 @@ const staggerContainer = {
 export default function App() {
   const { t, i18n } = useTranslation();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        form.reset();
+      } else {
+        setSubmitStatus('idle');
+        alert('Error submitting form.');
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus('idle');
+    }
+  };
 
   const toggleLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -38,8 +67,42 @@ export default function App() {
   }, []);
   return (
     <div className="min-h-screen font-sans selection:bg-white/20">
+      {/* Success Overlay */}
+      {submitStatus === 'success' && (
+        <div className="fixed inset-0 z-[100] bg-white text-black flex flex-col items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center flex flex-col items-center max-w-lg"
+          >
+            <img
+              src="/Logo/logo.png"
+              alt="MD Logo"
+              className="w-48 mb-12 select-none"
+            />
+            <h2 className="text-3xl md:text-5xl font-serif mb-6 leading-tight whitespace-pre-line" dangerouslySetInnerHTML={{ __html: t('inquiry.success_title') }} />
+            <p className="text-xl md:text-2xl font-light opacity-60 mb-12 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: t('inquiry.success_desc') }} />
+            <button
+              onClick={() => setSubmitStatus('idle')}
+              className="px-8 py-4 bg-black text-white rounded-full font-medium tracking-tight hover:scale-105 transition-transform duration-500"
+            >
+              {t('inquiry.success_btn')}
+            </button>
+          </motion.div>
+        </div>
+      )}
+
       {/* Social Floating Links */}
       <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+        <a
+          href="tel:010-3985-8279"
+          className="w-14 h-14 bg-black text-white border border-white/20 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
+        >
+          <Phone size={24} fill="currentColor" />
+          <span className="absolute right-full mr-4 bg-black/90 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-white/10 pointer-events-none">
+            010-3985-8279
+          </span>
+        </a>
         <a
           href="https://open.kakao.com/"
           target="_blank"
@@ -467,10 +530,11 @@ export default function App() {
           <motion.form
             action="https://formspree.io/f/xnjgdyew"
             method="POST"
+            onSubmit={handleFormSubmit}
             {...fadeInUp}
             className="space-y-12"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_name')}</label>
                 <input
@@ -479,6 +543,16 @@ export default function App() {
                   required
                   className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent"
                   placeholder={t('inquiry.form_name_placeholder')}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_phone')}</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent"
+                  placeholder={t('inquiry.form_phone_placeholder')}
                 />
               </div>
               <div className="space-y-2">
@@ -497,11 +571,12 @@ export default function App() {
               <label className="text-[10px] uppercase tracking-widest font-bold">{t('inquiry.form_service')}</label>
               <div className="relative">
                 <select name="service_category" required className="w-full border-b border-black/20 py-4 focus:outline-none focus:border-black transition-colors bg-transparent appearance-none">
-                  <option>{t('inquiry.form_service_options.corp')}</option>
-                  <option>{t('inquiry.form_service_options.digital')}</option>
-                  <option>{t('inquiry.form_service_options.surv')}</option>
-                  <option>{t('inquiry.form_service_options.asset')}</option>
-                  <option>{t('inquiry.form_service_options.other')}</option>
+                  <option value="debt">{t('inquiry.form_service_options.debt')}</option>
+                  <option value="background">{t('inquiry.form_service_options.background')}</option>
+                  <option value="school">{t('inquiry.form_service_options.school')}</option>
+                  <option value="evidence">{t('inquiry.form_service_options.evidence')}</option>
+                  <option value="corporate">{t('inquiry.form_service_options.corporate')}</option>
+                  <option value="detection">{t('inquiry.form_service_options.detection')}</option>
                 </select>
                 <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-40" size={16} />
               </div>
@@ -521,9 +596,10 @@ export default function App() {
             <div className="pt-12">
               <button
                 type="submit"
-                className="w-full py-6 bg-black text-white rounded-full text-lg font-medium hover:scale-[1.02] transition-transform duration-500"
+                disabled={submitStatus === 'submitting'}
+                className={`w-full py-6 bg-black text-white rounded-full text-lg font-medium hover:scale-[1.02] transition-transform duration-500 ${submitStatus === 'submitting' ? 'opacity-50 pointer-events-none' : ''}`}
               >
-                {t('inquiry.btn_submit')}
+                {submitStatus === 'submitting' ? '...' : t('inquiry.btn_submit')}
               </button>
               <p className="text-center mt-8 text-[10px] uppercase tracking-[0.2em] opacity-40">
                 {t('inquiry.footer_note')}

@@ -127,20 +127,26 @@
         "desc": "모든 통신은 암호화되며 엄격하게 기밀이 유지됩니다.",
         "form_name": "성명 / 기업명",
         "form_name_placeholder": "홍길동",
+        "form_phone": "연락처",
+        "form_phone_placeholder": "전화번호를 입력해 주세요.",
         "form_email": "보안 이메일",
         "form_email_placeholder": "confidential@protonmail.com",
         "form_service": "서비스 범주",
         "form_service_options": {
-            "corp": "기업 조사",
-            "digital": "디지털 포렌식",
-            "surv": "비밀 감시/미행",
-            "asset": "자산 추적",
-            "other": "기타"
+            "debt": "채권추심",
+            "background": "배경조사",
+            "school": "학폭조사",
+            "evidence": "민형사증거수집",
+            "corporate": "개인 및 기업 문제",
+            "detection": "탐지 조사"
         },
         "form_overview": "개요 요약",
         "form_overview_placeholder": "요청의 본질에 대해 설명해 주십시오...",
         "btn_submit": "보안 요청 제출",
-        "footer_note": "수석 요원이 안전한 채널을 통해 4시간 이내에 연락 드릴 것입니다."
+        "footer_note": "수석 요원이 안전한 채널을 통해 4시간 이내에 연락 드릴 것입니다.",
+        "success_title": "요청이 확인되었습니다.",
+        "success_desc": "감사합니다.",
+        "success_btn": "돌아가기"
     },
     "certifications": {
         "label": "공인된 자격",

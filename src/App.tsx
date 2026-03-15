@@ -204,8 +204,8 @@ export default function App() {
         <div className="text-2xl font-serif tracking-tighter font-bold italic pointer-events-auto">MD</div>
         <div className="hidden md:flex gap-12 text-[11px] uppercase tracking-[0.2em] font-medium items-center pointer-events-auto">
           <a href="#services" className="hover:opacity-50 transition-opacity">{t('nav.services')}</a>
-          <a href="#procedure" className="hover:opacity-50 transition-opacity">{t('nav.procedure')}</a>
           <a href="#about" className="hover:opacity-50 transition-opacity">{t('nav.philosophy')}</a>
+          <a href="#procedure" className="hover:opacity-50 transition-opacity">{t('nav.procedure')}</a>
           <a href="#contact" className="hover:opacity-50 transition-opacity">{t('nav.inquiry')}</a>
 
           {/* Language Switcher */}
@@ -402,38 +402,40 @@ export default function App() {
         </div>
       </section>
 
-      {/* Procedure Section */}
-      <section id="procedure" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden text-white">
+      {/* Certifications Section */}
+      <section id="certifications" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             {...fadeInUp}
-            className="text-center mb-16 md:mb-24"
+            className="text-center mb-16 md:mb-24 max-w-3xl mx-auto"
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('procedure.label')}</span>
-            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('procedure.title')}</h2>
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('certifications.label')}</span>
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('certifications.title')}</h2>
+            <p className="text-base md:text-lg font-light opacity-60 leading-relaxed px-4 md:px-0">
+              {t('certifications.desc')}
+            </p>
           </motion.div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
-          >
-            {(t('procedure.steps', { returnObjects: true }) as Array<{ num: string; title: string; desc: string }>).map((step, i) => (
+          {/* Grid of 4 Certificates */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 px-2 md:px-0">
+            {[1, 2, 3, 4].map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeInUp}
-                className="bg-white/5 border border-white/10 p-8 md:p-12 group hover:bg-white/10 transition-colors duration-700 flex flex-col h-full relative overflow-hidden"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="relative w-full aspect-[1/1.4] lg:w-48 lg:h-64 border border-white/10 group bg-white/5 rounded-sm overflow-hidden flex-shrink-0 shadow-2xl mx-auto"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <div className="text-gold font-mono text-[10px] tracking-widest mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-500 relative z-10">{step.num}</div>
-                <h3 className="text-xl md:text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500 text-white relative z-10">{step.title}</h3>
-                <div className="text-white/60 font-light leading-relaxed mb-12 flex-grow relative z-10">{step.desc}</div>
-                <div className="h-px w-8 bg-gold/30 group-hover:w-full transition-all duration-700 mt-auto relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+                <img
+                  src={`/cert${item}.jpg`}
+                  alt={`Certification ${item}`}
+                  className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -511,43 +513,6 @@ export default function App() {
           </div>
         </div>
       </section>
-      {/* Certifications Section */}
-      <section id="certifications" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            {...fadeInUp}
-            className="text-center mb-16 md:mb-24 max-w-3xl mx-auto"
-          >
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('certifications.label')}</span>
-            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('certifications.title')}</h2>
-            <p className="text-base md:text-lg font-light opacity-60 leading-relaxed px-4 md:px-0">
-              {t('certifications.desc')}
-            </p>
-          </motion.div>
-
-          {/* Grid of 4 Certificates */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 px-2 md:px-0">
-            {[1, 2, 3, 4].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="relative w-full aspect-[1/1.4] lg:w-48 lg:h-64 border border-white/10 group bg-white/5 rounded-sm overflow-hidden flex-shrink-0 shadow-2xl mx-auto"
-              >
-                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
-                <img
-                  src={`/cert${item}.jpg`}
-                  alt={`Certification ${item}`}
-                  className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Clobet On-Site Dominance Section */}
       <section className="relative py-24 md:py-32 px-4 md:px-8 bg-[#0a0a0a] text-white overflow-hidden border-t border-white/5">
         <div className="absolute inset-0 z-0">
@@ -698,6 +663,41 @@ export default function App() {
                 <div className="text-[10px] uppercase tracking-widest opacity-40">{t('philosophy.stat2_label')}</div>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Procedure Section */}
+      <section id="procedure" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden text-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...fadeInUp}
+            className="text-center mb-16 md:mb-24"
+          >
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('procedure.label')}</span>
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('procedure.title')}</h2>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+          >
+            {(t('procedure.steps', { returnObjects: true }) as Array<{ num: string; title: string; desc: string }>).map((step, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-8 md:p-12 group hover:bg-white/10 transition-colors duration-700 flex flex-col h-full relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="text-gold font-mono text-[10px] tracking-widest mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-500 relative z-10">{step.num}</div>
+                <h3 className="text-xl md:text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500 text-white relative z-10">{step.title}</h3>
+                <div className="text-white/60 font-light leading-relaxed mb-12 flex-grow relative z-10">{step.desc}</div>
+                <div className="h-px w-8 bg-gold/30 group-hover:w-full transition-all duration-700 mt-auto relative z-10" />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

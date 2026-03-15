@@ -1,6 +1,7 @@
 {
     "nav": {
         "services": "Services",
+        "procedure": "Procedure",
         "philosophy": "Philosophy",
         "inquiry": "Inquiry",
         "portal": "Secure Portal"
@@ -9,7 +10,7 @@
         "est": "Est. 2024 — Premium Detective Agency",
         "title1": "Truth in",
         "title2": "Silence.",
-        "desc": "MD provides discreet, high-stakes investigation services for corporations and individuals who demand absolute precision and total confidentiality.",
+        "desc": "MD thoroughly and discreetly executes high-stakes, in-depth investigations for corporations and individuals, operating with perfect security and precise analysis.",
         "btn_start": "Start Investigation",
         "btn_expertise": "Our Expertise",
         "scroll": "Scroll"
@@ -22,9 +23,10 @@
             "debt": {
                 "title": "Debt Collection",
                 "desc": [
-                    "Debtor Verification",
-                    "Debt Litigation",
-                    "Civil Litigation Proceedings"
+                    "Creditor Verification",
+                    "Debt Litigation Evidence",
+                    "Debt Litigation Connected with Lawyers",
+                    "Hidden Asset Investigation"
                 ]
             },
             "background": {
@@ -32,7 +34,6 @@
                 "desc": [
                     "Runaway Minor Verification",
                     "Debtor Tracing",
-                    "Information Inquiry",
                     "Whereabouts Investigation"
                 ]
             },
@@ -46,16 +47,15 @@
             "evidence": {
                 "title": "Civil/Criminal Evidence Collection",
                 "desc": [
-                    "Criminal Case Evidence",
-                    "Litigation-related Evidence",
-                    "Family Court Evidence",
-                    "Civil Case Evidence"
+                    "Divorce Litigation Evidence",
+                    "Adultery Litigation Evidence",
+                    "Civil/Criminal Case Evidence"
                 ]
             },
             "corporate": {
                 "title": "Personal & Corporate Issues",
                 "desc": [
-                    "Personal Protection",
+                    "Personal Protection & Special Escort",
                     "Business Rights Infringement Investigation",
                     "Infidelity and Affair Investigation"
                 ]
@@ -64,10 +64,46 @@
                 "title": "Detection & Sweeping",
                 "desc": [
                     "Wiretap, Bugging, Location Tracking",
-                    "Precision Tracking using Digital Equipment"
+                    "Precision Investigation using Digital Equipment"
                 ]
             }
         }
+    },
+    "procedure": {
+        "label": "Service Procedure",
+        "title": "MD Detective Agency Service Procedure",
+        "steps": [
+            {
+                "num": "STEP. 01",
+                "title": "Consultation & Contract",
+                "desc": "Receipt of consultation via phone or visit, followed by contract signing"
+            },
+            {
+                "num": "STEP. 02",
+                "title": "Expert Team Assignment",
+                "desc": "Assignment of a specialized team tailored to the field characteristics"
+            },
+            {
+                "num": "STEP. 03",
+                "title": "Execution of Work",
+                "desc": "Delivery and reporting of real-time progress"
+            },
+            {
+                "num": "STEP. 04",
+                "title": "Reporting & Follow-up",
+                "desc": "Reporting investigation results and conducting supplementary investigation after consultation"
+            },
+            {
+                "num": "STEP. 05",
+                "title": "Conclusion",
+                "desc": "Conclusion of information gathering and investigation work"
+            },
+            {
+                "num": "STEP. 06",
+                "title": "Data Disposal",
+                "desc": "Disposal of all information data after task completion"
+            }
+        ]
     },
     "philosophy": {
         "label": "Our Philosophy",
@@ -165,7 +201,7 @@
         "title1": "Overwhelming",
         "title2": "On-site Dominance",
         "desc": "We perfectly control the scene\nin any unexpected situation.",
-        "side_title": "Clobet Special Escort",
+        "side_title": "Special Escort & Professional Investigation",
         "features": {
             "military": {
                 "title": "Military Tactical Training-based Escort",

@@ -65,6 +65,27 @@ export default function App() {
     const lenis = new Lenis({
       autoRaf: true,
     });
+
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      
+      if (!anchor) return;
+      
+      const href = anchor.getAttribute('href');
+      
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        lenis.scrollTo(href, { offset: -100 }); // Added offset to account for fixed navbar
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      lenis.destroy();
+    };
   }, []);
   return (
     <div className="min-h-screen font-sans selection:bg-white/20">
@@ -181,8 +202,9 @@ export default function App() {
         className="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-6 flex justify-between items-center mix-blend-difference pointer-events-none"
       >
         <div className="text-2xl font-serif tracking-tighter font-bold italic pointer-events-auto">MD</div>
-        <div className="hidden md:flex gap-12 text-[11px] uppercase tracking-[0.2em] font-medium items-center">
+        <div className="hidden md:flex gap-12 text-[11px] uppercase tracking-[0.2em] font-medium items-center pointer-events-auto">
           <a href="#services" className="hover:opacity-50 transition-opacity">{t('nav.services')}</a>
+          <a href="#procedure" className="hover:opacity-50 transition-opacity">{t('nav.procedure')}</a>
           <a href="#about" className="hover:opacity-50 transition-opacity">{t('nav.philosophy')}</a>
           <a href="#contact" className="hover:opacity-50 transition-opacity">{t('nav.inquiry')}</a>
 
@@ -380,61 +402,37 @@ export default function App() {
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section id="about" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+      {/* Procedure Section */}
+      <section id="procedure" className="py-20 md:py-32 px-4 md:px-8 bg-[#050505] border-t border-white/5 relative overflow-hidden text-white">
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5 }}
-            className="relative aspect-[4/5] overflow-hidden rounded-2xl w-full max-w-md mx-auto md:max-w-none"
+            {...fadeInUp}
+            className="text-center mb-16 md:mb-24"
           >
-            <img
-              src="/디자인.png"
-              alt="Investigation"
-              className="object-cover w-full h-full opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono text-gold">{t('procedure.label')}</span>
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-6 md:mb-8 leading-tight">{t('procedure.title')}</h2>
           </motion.div>
 
-          <motion.div {...fadeInUp} className="text-center md:text-left mt-8 md:mt-0">
-            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono">{t('philosophy.label')}</span>
-            <h2 className="text-4xl md:text-6xl font-serif italic mb-8 md:mb-12 leading-tight">
-              {t('philosophy.title1')} <br />{t('philosophy.title2')}
-            </h2>
-            <div className="space-y-8 text-lg font-light opacity-60 leading-relaxed">
-              <p>
-                {t('philosophy.desc1')}
-              </p>
-              <p>
-                {t('philosophy.desc2')}
-              </p>
-            </div>
-            <div className="mt-16 grid grid-cols-2 gap-12">
-              <div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-4xl font-serif italic mb-2"
-                >
-                  99%
-                </motion.div>
-                <div className="text-[10px] uppercase tracking-widest opacity-40">{t('philosophy.stat1_label')}</div>
-              </div>
-              <div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  className="text-4xl font-serif italic mb-2"
-                >
-                  100%
-                </motion.div>
-                <div className="text-[10px] uppercase tracking-widest opacity-40">{t('philosophy.stat2_label')}</div>
-              </div>
-            </div>
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+          >
+            {(t('procedure.steps', { returnObjects: true }) as Array<{ num: string; title: string; desc: string }>).map((step, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-white/5 border border-white/10 p-8 md:p-12 group hover:bg-white/10 transition-colors duration-700 flex flex-col h-full relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="text-gold font-mono text-[10px] tracking-widest mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-500 relative z-10">{step.num}</div>
+                <h3 className="text-xl md:text-2xl font-serif italic mb-4 group-hover:translate-x-2 transition-transform duration-500 text-white relative z-10">{step.title}</h3>
+                <div className="text-white/60 font-light leading-relaxed mb-12 flex-grow relative z-10">{step.desc}</div>
+                <div className="h-px w-8 bg-gold/30 group-hover:w-full transition-all duration-700 mt-auto relative z-10" />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -639,6 +637,65 @@ export default function App() {
                     {t('clobe.features.control.desc')}
                   </p>
                 </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section id="about" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className="relative aspect-[4/5] overflow-hidden rounded-2xl w-full max-w-md mx-auto md:max-w-none"
+          >
+            <img
+              src="/디자인.png"
+              alt="Investigation"
+              className="object-cover w-full h-full opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          </motion.div>
+
+          <motion.div {...fadeInUp} className="text-center md:text-left mt-8 md:mt-0">
+            <span className="text-[10px] uppercase tracking-[0.5em] mb-6 md:mb-8 block opacity-40 font-mono">{t('philosophy.label')}</span>
+            <h2 className="text-4xl md:text-6xl font-serif italic mb-8 md:mb-12 leading-tight">
+              {t('philosophy.title1')} <br />{t('philosophy.title2')}
+            </h2>
+            <div className="space-y-8 text-lg font-light opacity-60 leading-relaxed">
+              <p>
+                {t('philosophy.desc1')}
+              </p>
+              <p>
+                {t('philosophy.desc2')}
+              </p>
+            </div>
+            <div className="mt-16 grid grid-cols-2 gap-12">
+              <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-4xl font-serif italic mb-2"
+                >
+                  95%
+                </motion.div>
+                <div className="text-[10px] uppercase tracking-widest opacity-40">{t('philosophy.stat1_label')}</div>
+              </div>
+              <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-4xl font-serif italic mb-2"
+                >
+                  100%
+                </motion.div>
+                <div className="text-[10px] uppercase tracking-widest opacity-40">{t('philosophy.stat2_label')}</div>
               </div>
             </div>
           </motion.div>
